@@ -1,0 +1,37 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: A simple API for AI text generation with concurrency handling.
+  title: Go AI Concurrency Challenge API
+  version: "1.0"
+paths:
+  /generate:
+    post:
+      consumes:
+      - text/plain
+      description: Send text to AI and get response
+      parameters:
+      - description: Text to process
+        in: body
+        name: text
+        required: true
+        schema:
+          type: string
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: AI response
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "405":
+          description: Method not allowed
+          schema:
+            type: string
+      summary: Generate AI response
+swagger: "2.0"
